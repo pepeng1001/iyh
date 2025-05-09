@@ -144,3 +144,4 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹🚰💪</i>
     </p>
 """, unsafe_allow_html=True)
+
