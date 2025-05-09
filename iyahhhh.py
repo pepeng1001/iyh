@@ -58,6 +58,19 @@ with st.form("form_air"):
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
+   # Kuis Hidrasi
+        st.subheader("💡 Kuis Hidrasi")
+        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup? 🧐", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜"])
+        if kuis_answer == "Mencegah dehidrasi 🏜":
+            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu! 💪")
+        else:
+            st.error("❌ Jawaban kurang tepat. Yuk belajar lagi pentingnya air bagi tubuh! 📚💧")
+ # Streak Minum Air
+        streak = st.number_input("🎉 Berapa banyak hari kamu sudah konsisten minum air? 📅", min_value=0, value=0)
+        if streak > 0:
+            st.balloons()
+            st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Teruskan kebiasaan baik ini ya! 💦👏")
+
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
@@ -105,19 +118,6 @@ if submitted:
         - 🍜 *Makanan Berkuah*: Sup dan soto juga memberikan asupan cairan tambahan.
         """)
 
-        # Streak Minum Air
-        streak = st.number_input("🎉 Berapa banyak hari kamu sudah konsisten minum air? 📅", min_value=0, value=0)
-        if streak > 0:
-            st.balloons()
-            st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Teruskan kebiasaan baik ini ya! 💦👏")
-
-        # Kuis Hidrasi
-        st.subheader("💡 Kuis Hidrasi")
-        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup? 🧐", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜"])
-        if kuis_answer == "Mencegah dehidrasi 🏜":
-            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu! 💪")
-        else:
-            st.error("❌ Jawaban kurang tepat. Yuk belajar lagi pentingnya air bagi tubuh! 📚💧")
 
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
