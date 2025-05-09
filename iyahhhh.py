@@ -60,8 +60,7 @@ with st.form("form_air"):
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
-        time.sleep(1.5)
-
+       
         # Dasar
         kebutuhan_dasar_min = 30 * berat_badan / 1000
         kebutuhan_dasar_max = 40 * berat_badan / 1000
