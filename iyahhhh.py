@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
@@ -89,9 +90,22 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
+        # Grafik
         st.subheader("📊 Visualisasi Kebutuhan Air")
 
+        # Pengingat Minum Air
+        reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
+        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas!")
+
+        # Rekomendasi Menu
+        st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
+        st.markdown("""
+        - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
+        - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
+        - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
+        - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
+        """)
+        
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
