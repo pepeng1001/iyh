@@ -91,7 +91,6 @@ if submitted:
 
         # Grafik
         st.subheader("📊 Visualisasi Kebutuhan Air")
-        fig, ax = plt.subplots()
         kategori = ['Min (Dasar)', 'Max (Dasar)', 'Min (Total)', 'Max (Total)']
         nilai = [kebutuhan_dasar_min, kebutuhan_dasar_max, kebutuhan_total_min, kebutuhan_total_max]
         warna = ['skyblue', 'dodgerblue', 'lightgreen', 'green']
