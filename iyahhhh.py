@@ -89,14 +89,24 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Grafik
+        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
         st.subheader("📊 Visualisasi Kebutuhan Air")
-        kategori = ['Min (Dasar)', 'Max (Dasar)', 'Min (Total)', 'Max (Total)']
-        nilai = [kebutuhan_dasar_min, kebutuhan_dasar_max, kebutuhan_total_min, kebutuhan_total_max]
-        warna = ['skyblue', 'dodgerblue', 'lightgreen', 'green']
-       
+
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
+
+        # Tips dari pakar kesehatan
+        st.subheader("🩺 Tips Profesional dari Pakar Kesehatan")
+        st.markdown("""
+        <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
+            <ul>
+                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. Haus adalah tanda tubuh sudah mulai kekurangan cairan."</li>
+                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Bawalah botol air sendiri ke mana pun kamu pergi. Ini membantu kamu tetap terhidrasi sepanjang hari."</li>
+                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu! Jika terlalu gelap, itu tandanya kamu perlu minum lebih banyak."</li>
+                <li>👩‍⚕️ <strong>Dr. Minerva Airin</strong>: "Orang dengan penyakit tertentu (seperti ginjal atau jantung) harus berkonsultasi dulu sebelum menaikkan asupan cairan."</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
 
 # Watermark stylist
 st.markdown("""
@@ -107,3 +117,4 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
+
