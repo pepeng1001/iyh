@@ -94,7 +94,6 @@ if submitted:
         kategori = ['Min (Dasar)', 'Max (Dasar)', 'Min (Total)', 'Max (Total)']
         nilai = [kebutuhan_dasar_min, kebutuhan_dasar_max, kebutuhan_total_min, kebutuhan_total_max]
         warna = ['skyblue', 'dodgerblue', 'lightgreen', 'green']
-        ax.bar(kategori, nilai, color=warna)
         ax.set_ylabel('Liter per Hari')
         ax.set_title('💦 Kebutuhan Air Harian')
         st.pyplot(fig)
