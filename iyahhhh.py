@@ -90,12 +90,12 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Grafik
+        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
         st.subheader("📊 Visualisasi Kebutuhan Air")
 
         # Pengingat Minum Air
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
-        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas!")
+        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
 
         # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
@@ -105,7 +105,18 @@ if submitted:
         - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
         - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
         """)
-        
+
+        # Streak Minum Air (Menampilkan streak jika pengguna sudah melakukan beberapa kali)
+        streak = st.number_input("🎉 Berapa banyak hari kamu sudah konsisten minum air?", min_value=0, value=0)
+        if streak > 0:
+            st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Keep going! 🌟💧")
+
+        # Kuis Hidrasi
+        st.subheader("💡 Kuis Hidrasi")
+        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
+        if kuis_answer == "Mencegah dehidrasi 🏜️":
+            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
+
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
@@ -131,4 +142,5 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
+
 
