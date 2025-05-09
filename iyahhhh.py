@@ -94,8 +94,7 @@ if submitted:
         kategori = ['Min (Dasar)', 'Max (Dasar)', 'Min (Total)', 'Max (Total)']
         nilai = [kebutuhan_dasar_min, kebutuhan_dasar_max, kebutuhan_total_min, kebutuhan_total_max]
         warna = ['skyblue', 'dodgerblue', 'lightgreen', 'green']
-        st.pyplot(fig)
-
+       
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
