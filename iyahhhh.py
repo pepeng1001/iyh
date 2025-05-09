@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
@@ -113,9 +112,26 @@ if submitted:
 
         # Kuis Hidrasi
         st.subheader("💡 Kuis Hidrasi")
-        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
-        if kuis_answer == "Mencegah dehidrasi 🏜️":
-            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
+        if 'quiz_answer' not in st.session_state:
+            st.session_state.quiz_answer = None
+
+        # Check if the quiz has been answered before
+        if st.session_state.quiz_answer is None:
+            kuis_answer = st.selectbox(
+                "Apa manfaat utama dari hidrasi yang cukup?", 
+                ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"]
+            )
+            # Store the answer in session state when submitted
+            if st.button("🎯 Submit Jawaban"):
+                st.session_state.quiz_answer = kuis_answer
+                if kuis_answer == "Mencegah dehidrasi 🏜️":
+                    st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
+                else:
+                    st.error("❌ Jawaban salah! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu.")
+        else:
+            # Show the result after answering the quiz
+            st.success(f"👏 Kamu sudah menyelesaikan kuis! Jawaban kamu: {st.session_state.quiz_answer}")
+            st.button("🔄 Ulangi Kuis", on_click=lambda: st.session_state.update({'quiz_answer': None}))
 
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
@@ -142,5 +158,3 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
-
-
